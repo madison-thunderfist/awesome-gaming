@@ -1,0 +1,82 @@
+[gd_scene format=4 uid="uid://5ldycln8cor1"]
+
+[ext_resource type="PackedScene" uid="uid://bsmaflqm5ykvh" path="res://Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://bb1xhv5nbxyh2" path="res://Scenes/tile_map_layer.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://bjyx26ukphy4o" path="res://Scenes/platform1.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://btwe3cg56r44l" path="res://Scenes/coin.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://dqnc1ydhegu0d" path="res://Scenes/death.tscn" id="5_wowpa"]
+
+[sub_resource type="Animation" id="Animation_wrm1d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-176, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_3dryh"]
+resource_name = "movement"
+length = 6.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-176, 16), Vector2(-176, 16), Vector2(-336, 16), Vector2(-336, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wowpa"]
+_data = {
+&"RESET": SubResource("Animation_wrm1d"),
+&"movement": SubResource("Animation_3dryh")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i6g32"]
+
+[node name="Node2D" type="Node2D" unique_id=2135060897]
+
+[node name="CharacterBody2D" parent="." unique_id=32755669 instance=ExtResource("1_ebmjs")]
+position = Vector2(-99, -7)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=943552294]
+
+[node name="TileMapLayer" parent="." unique_id=627308216 instance=ExtResource("2_qxrlw")]
+tile_map_data = PackedByteArray("AAD8/wAAAQAAAAEAAAD9/wAAAQAAAAEAAAD+/wAAAQAAAAEAAAD//wAAAQAAAAEAAAD7/wAAAQAAAAEAAAD7/wEAAQAAAAAAAAD8/wEAAQAAAAAAAAD9/wEAAQAAAAAAAAD+/wEAAQAAAAAAAAD//wEAAQAAAAAAAAD//wIAAQAAAAAAAAD+/wIAAQAAAAAAAAD9/wIAAQAAAAAAAAD8/wIAAQAAAAAAAAD7/wIAAQAAAAAAAAAAAAIAAQABAAAAAAABAAMAAQABAAAAAAACAAQAAQABAAEAAAADAAUAAQABAAAAAAAEAAYAAQABAAEAAAAFAAcAAQACAAEAAAAGAAcAAQACAAEAAAAHAAcAAQACAAEAAAAIAAcAAQACAAEAAAAIAAgAAQACAAAAAAAHAAgAAQACAAAAAAAGAAgAAQACAAAAAAAFAAgAAQACAAAAAAD+////AQABAAIAAAD7////AQAAAAIAAAAHAAYAAQACAAIAAAAJAAgAAQACAAAAAAAKAAgAAQACAAAAAAALAAgAAQACAAAAAAAJAAcAAQACAAEAAAAKAAcAAQACAAEAAAALAAcAAQACAAEAAAADAAYAAQAAAAAAAAACAAYAAQACAAAAAAABAAYAAQAAAAAAAAAAAAYAAQAAAAAAAAD//wYAAQACAAAAAAD+/wYAAQACAAAAAAD9/wYAAQAAAAAAAAD8/wYAAQACAAAAAAD7/wYAAQACAAAAAAD7/wUAAQAAAAAAAAD7/wQAAQAAAAAAAAD7/wMAAQAAAAAAAAD8/wMAAQAAAAAAAAD9/wMAAQAAAAAAAAD+/wMAAQAAAAAAAAD//wMAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQACAAAAAAACAAUAAQAAAAAAAAAAAAUAAQAAAAAAAAD//wUAAQAAAAAAAAD+/wUAAQACAAAAAAD9/wUAAQAAAAAAAAD8/wUAAQAAAAAAAAD8/wQAAQACAAAAAAD9/wQAAQAAAAAAAAD+/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAEAAcAAQACAAAAAAADAAcAAQACAAAAAAACAAcAAQACAAAAAAABAAcAAQACAAAAAAAAAAcAAQACAAAAAAD//wcAAQACAAAAAAD+/wcAAQACAAAAAAD9/wcAAQACAAAAAAD8/wcAAQACAAAAAAD7/wcAAQACAAAAAAD7/wgAAQACAAAAAAD8/wgAAQACAAAAAAD9/wgAAQACAAAAAAD+/wgAAQACAAAAAAD//wgAAQACAAAAAAABAAgAAQACAAAAAAAAAAgAAQACAAAAAAACAAgAAQACAAAAAAADAAgAAQACAAAAAAAEAAgAAQACAAAAAAADAPz/AQAAAAEAAAAEAPz/AQAAAAEAAAAFAPz/AQAAAAEAAAAGAPz/AQAAAAEAAAAHAPz/AQAAAAEAAAAIAPz/AQAAAAEAAAAJAPz/AQAAAAEAAAAEAP3/AQAAAAAAAAAFAP3/AQAAAAAAAAAGAP3/AQAAAAAAAAAHAP3/AQAAAAAAAAAIAP3/AQAAAAAAAAAFAP7/AQACAAAAAAAGAP7/AQACAAAAAAAHAP7/AQACAAAAAAD0/wAAAQAAAAEAAADz/wAAAQAAAAEAAADy/wAAAQAAAAEAAADx/wAAAQAAAAEAAADw/wAAAQAAAAEAAADw/wEAAQAAAAAAAADw/wIAAQAAAAAAAADw/wMAAQAAAAAAAADx/wMAAQAAAAAAAADy/wMAAQAAAAAAAADz/wMAAQAAAAAAAAD0/wMAAQAAAAAAAAD0/wIAAQAAAAAAAAD0/wEAAQAAAAAAAADz/wEAAQAAAAAAAADy/wEAAQAAAAAAAADx/wEAAQAAAAAAAADx/wIAAQAAAAAAAADy/wIAAQAAAAAAAADz/wIAAQAAAAAAAADw////AQAAAAIAAAD0////AQAAAAIAAAAIAPv/AQAAAAIAAAAEAPv/AQABAAIAAADy////AQABAAIAAAA=")
+
+[node name="AnimatableBody2D" parent="." unique_id=1502442625 instance=ExtResource("3_wrm1d")]
+position = Vector2(80, 16)
+
+[node name="AnimatableBody2D2" parent="." unique_id=632912175 instance=ExtResource("3_wrm1d")]
+position = Vector2(80, -46)
+
+[node name="AnimatableBody2D3" parent="." unique_id=929998738 instance=ExtResource("3_wrm1d")]
+position = Vector2(80, -112)
+
+[node name="AnimatableBody2D4" parent="." unique_id=627408525 instance=ExtResource("3_wrm1d")]
+position = Vector2(-176, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D4" unique_id=1685009782]
+libraries/ = SubResource("AnimationLibrary_wowpa")
+autoplay = &"movement"
+
+[node name="coin" parent="." unique_id=648111302 instance=ExtResource("4_3dryh")]
+position = Vector2(197, -147)
+
+[node name="death" parent="." unique_id=401993403 instance=ExtResource("5_wowpa")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death" unique_id=39110047]
+position = Vector2(0, 324)
+shape = SubResource("WorldBoundaryShape2D_i6g32")
