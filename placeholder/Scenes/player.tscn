@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://bsmaflqm5ykvh"]
 
 [ext_resource type="Script" uid="uid://ctjh8a2rw6qmf" path="res://Scripts/player.gd" id="1_v0iea"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sh265"]
-load_path = "res://.godot/imported/PC.png-5b553a07026a1d119c8af8e62ee8f3b6.ctex"
+[ext_resource type="Texture2D" uid="uid://c6metekoe4r7i" path="res://Assests/simon_1.png" id="2_cvnsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
-size = Vector2(10, 12)
+size = Vector2(10.5, 12)
 
 [node name="Player" type="CharacterBody2D" unique_id=32755669]
 scale = Vector2(2, 2)
@@ -14,9 +12,10 @@ collision_layer = 3
 script = ExtResource("1_v0iea")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=674367758]
-position = Vector2(0, -8)
-texture = SubResource("CompressedTexture2D_sh265")
+position = Vector2(0, -7)
+scale = Vector2(0.023, 0.023)
+texture = ExtResource("2_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1679361424]
-position = Vector2(0, -6)
+position = Vector2(0.25, -6)
 shape = SubResource("RectangleShape2D_4flbx")
