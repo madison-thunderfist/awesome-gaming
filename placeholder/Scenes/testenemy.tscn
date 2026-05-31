@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cd2btup0pf7bd"]
+
+[ext_resource type="Texture2D" uid="uid://dj3tewqrqkhhx" path="res://Assests/PC.png" id="1_mff65"]
+[ext_resource type="PackedScene" uid="uid://dqnc1ydhegu0d" path="res://Scenes/death.tscn" id="2_86m1d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pklc"]
+size = Vector2(40, 44)
+
+[node name="testenemy" type="Node2D" unique_id=182155590]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1760428122]
+scale = Vector2(4, 4)
+texture = ExtResource("1_mff65")
+
+[node name="death" parent="." unique_id=401993403 instance=ExtResource("2_86m1d")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death" unique_id=41262562]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_3pklc")

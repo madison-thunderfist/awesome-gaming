@@ -7,6 +7,7 @@
 radius = 8.0
 
 [node name="coin" type="Area2D" unique_id=648111302]
+scale = Vector2(2, 2)
 collision_mask = 2
 script = ExtResource("1_jgi06")
 
